@@ -1,0 +1,38 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Hardhat-specific files
+cache/
+artifacts/
+
+# Environment variables
+.env
+.env.*
+
+# VSCode-specific files
+.vscode/
+
+# MacOS-specific files
+.DS_Store
+
+# Log files
+*.log
+
+# Coverage
+coverage/
+coverage.json
+lcov-report/
+
+# Miscellaneous
+*.tsbuildinfo
+
+# IDE files
+.idea/
+*.iml
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
