@@ -13,6 +13,8 @@
     "@nomiclabs/hardhat-ethers": "^2.2.3",
     "dotenv": "^16.4.5",
     "ethers": "^5.7.2",
-    "hardhat": "^2.22.15"
+    "hardhat": "^2.22.15",
+    "install": "^0.13.0",
+    "npm": "^10.9.0"
   }
 }
