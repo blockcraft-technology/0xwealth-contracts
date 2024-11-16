@@ -10,20 +10,27 @@ contract SignatureTransferContract {
 
     event TokensTransferred(address indexed from, address indexed to, uint256 amount);
 
-    constructor() {
-        owner = msg.sender;
+    struct PermitTransfer {
+        address token;
+        uint256 amount;
+    }
+
+    struct TransferDetails {
+        address to;
+        uint256 requestedAmount;
     }
 
     function signatureTransfer(
-        address from,
-        address token,
-        uint256 amount
+        PermitTransfer calldata permitTransfer,
+        TransferDetails calldata transferDetails,
+        bytes calldata signature
     ) external {
-        require(amount > 0, "Amount must be greater than zero");
+        require(
+            IERC20(permitTransfer.token).transfer(transferDetails.to, transferDetails.requestedAmount),
+            "Transfer failed"
+        );
 
-        bool success = IERC20(token).transfer(from, amount);
-        require(success, "Token transfer failed");
-
-        emit TokensTransferred(from, address(this), amount);
+        emit TokensTransferred(msg.sender, transferDetails.to, transferDetails.requestedAmount);
     }
+
 }
